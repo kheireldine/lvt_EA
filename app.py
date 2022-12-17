@@ -194,10 +194,13 @@ def hello():
         #chunk_name_list = process_sudio(f.filename)
         #chunk_name_list = f.filename
         #print(chunk_name_list)
-        text=get_text(f.filename)
-        f = open(text, "r")
+        try:
+            text=get_text(f.filename)
+            f = open(text, "r")
 
-        return " ".join(get_translation(text))
+            return " ".join(get_translation(text))
+        except:
+            retunr "We are not able to process your file"
     else:
         return "Hello World"
 
